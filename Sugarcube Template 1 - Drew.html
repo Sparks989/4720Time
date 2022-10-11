@@ -730,7 +730,8 @@ However, I know the black hole could be coming soon, &quot;Do I have time to do 
 
 &lt;div class=&quot;choice&quot;&gt;[[Take a nap|Blackholde reset][$timeloop to $timeloop + 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Change your suit (1 action)|Change of Suit][$turns to $turns - 1]]&lt;/div&gt;
-&lt;div class=&quot;choice&quot;&gt;[[Go to Med Bay (1 action)|Med Bay][$turns to $turns - 1]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="Med Bay" tags="" position="800,600" size="100,100">&lt;&lt;if $timeloop is 0&gt;&gt;
+&lt;div class=&quot;choice&quot;&gt;[[Go to Med Bay (1 action)|Med Bay][$turns to $turns - 1]]&lt;/div&gt;
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="Med Bay" tags="" position="800,600" size="100,100">&lt;&lt;if $timeloop is 0&gt;&gt;
 Med bay looks as it normally does: white and sterile. The medical cabinets are stored with first aid equipments, medicine, and basically anything anyone would need up alone in space. There is also a lot of supplies so that I can treat any physical ailments. Thankfully, I don&#39;t have to use this room that often other than giving myself a quick check up or test some of my own samples to make sure I am getting all my proper vitamins and nutrients.
 
 This room leads to the docking bay, command room, and the barracks. 
@@ -755,7 +756,8 @@ I enter med bay… again. &quot;Is there anything I should do here?&quot; I ask 
 &lt;div class=&quot;choice&quot;&gt;[[Go to Command (1 action)|Command Room][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Barracks (1 action)|The Barracks][$turns to $turns - 1]]&lt;/div&gt;
 &lt;&lt;if $playerinjured is true&gt;&gt; &lt;div class=&quot;choice&quot;&gt;[[Patch injuries (2 actions)|Fixing injuries][$turns to $turns - 2]]&lt;/div&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Blackholde reset" tags="" position="500,400" size="100,100"></tw-passagedata><tw-passagedata pid="21" name="Change of Suit" tags="" position="500,700" size="100,100"></tw-passagedata><tw-passagedata pid="22" name="Run vitals" tags="" position="800,700" size="100,100">It seems like everything is fine…
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Blackholde reset" tags="" position="500,400" size="100,100"></tw-passagedata><tw-passagedata pid="21" name="Change of Suit" tags="" position="500,700" size="100,100"></tw-passagedata><tw-passagedata pid="22" name="Run vitals" tags="" position="800,700" size="100,100">It seems like everything is fine…
 
 &lt;div class=&quot;choice&quot;&gt;[[Go Back|Med Bay]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="Docking Bay" tags="" position="800,1000" size="100,100">The clatter of mechanical rattling filled the docking bay. I’ve always wondered how delivery services work.
 
@@ -769,14 +771,14 @@ How may I help you today?
 &lt;div class=&quot;choice&quot;&gt;[[Go to Med Bay (1 action)|Med Bay][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Engine Room (1 action)|Engine][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Navigation (1 action)|Navigation][$turns to $turns - 1]]&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="24" name="Command Room" tags="" position="800,200" size="100,100">Command. It’s surprisingly small for debatably the most important room on a ship. Inside the narrow space are two seats facing towards the control desk that pilots the ship. One normally doesn’t have access to the control desk unless they have special authorization from home base or an override code. There are windows on the side walls and behind the control desk that let me see the beauty of the space around me.
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="Command Room" tags="" position="800,200" size="100,100">Command. It’s surprisingly small for debatably the most important room on a ship. Inside the narrow space are two seats facing towards the control desk that pilots the ship. One normally doesn’t have access to the control desk unless they have special authorization from home base or an override code. There are windows on the side walls and behind the control desk that let me see the beauty of the space around me.
 
 &lt;div class=&quot;choice&quot;&gt;[[Look at the chairs (1 action)|Look at chairs][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Inspect the Control Desk (1 action)|Inspect Control Desk][$turns to $turns - 1]]
 &lt;div class=&quot;choice&quot;&gt;[[Go to Navigation (1 action)|Navigation][$turns to turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Engine Room (1 action)|Engine][$turns to turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Med Bay (1 action)|Med Bay][$turns to turns - 1]]&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="25" name="Fixing injuries" tags="" position="700,700" size="100,100">&quot;Ahhh sweet med bay.&quot;
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Fixing injuries" tags="" position="700,700" size="100,100">&quot;Ahhh sweet med bay.&quot;
 
 I go straight to the cabinet to find the first aid kit. It&#39;s a lot harder to tend to my wounds when I am in space all on my own. However, that&#39;s what all that medical training was for.
 
@@ -784,7 +786,8 @@ I grab the supplies to create a makeshift splint for myself and attend to the wo
 
 Then I take the materials for the splint and apply the padding in all the right places. Once its secured, I release the tension in my arm and I feel a lot better.
 
-&lt;div class=&quot;choice&quot;&gt;[[Go Back|Med Bay]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Take X-Ray" tags="" position="900,700" size="100,100">I seem to look completely normal but maybe I shouldn&#39;t do random X rays all the time.
+&lt;div class=&quot;choice&quot;&gt;[[Go Back|Med Bay]]&lt;/div&gt;
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 2&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="Take X-Ray" tags="" position="900,700" size="100,100">I seem to look completely normal but maybe I shouldn&#39;t do random X rays all the time.
 
 &lt;div class=&quot;choice&quot;&gt;[[Go Back|Med Bay]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="Look at chairs" tags="" position="900,300" size="100,100"></tw-passagedata><tw-passagedata pid="28" name="Inspect Control Desk" tags="" position="700,300" size="100,100"></tw-passagedata><tw-passagedata pid="29" name="Navigation" tags="" position="1350,200" size="100,100">&lt;&lt;if $timeloop is 0&gt;&gt;
 I walk into the engine room and there is a soothing hum.
@@ -807,7 +810,7 @@ Okay I need to fix the engine otherwise the same thing will happen.
 &lt;div class=&quot;choice&quot;&gt;[[Go to Research (1 action)|Research][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Command (1 action)|Command Room][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Docking Bay (1 action)|Docking Bay][$turns to $turns - 1]]&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="30" name="Engine" tags="" position="1400,1000" size="100,100">I walk into the engine room and there is a soothing hum.
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="Engine" tags="" position="1400,1000" size="100,100">I walk into the engine room and there is a soothing hum.
 
 “Everything seems fine in here, but may as well check.”
 
@@ -824,7 +827,7 @@ I look over a couple of the gauges and for whatever reason there seems to be a p
 [[“This way to research.” |Research]]
 [[“I should probably check out the command room.” |Command Room]]
 [[“The docking bay could probably use some attention.” |Docking Bay]]
-</tw-passagedata><tw-passagedata pid="31" name="Diagnosis" tags="" position="1300,300" size="100,100"></tw-passagedata><tw-passagedata pid="32" name="Station Output Fiddling" tags="" position="1400,300" size="100,100"></tw-passagedata><tw-passagedata pid="33" name="Oxygen Levels Fiddling" tags="" position="1200,300" size="100,100"></tw-passagedata><tw-passagedata pid="34" name="Research" tags="" position="1400,600" size="100,100">&lt;&lt;if $timeloop is 0&gt;&gt;
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="Diagnosis" tags="" position="1300,300" size="100,100"></tw-passagedata><tw-passagedata pid="32" name="Station Output Fiddling" tags="" position="1400,300" size="100,100"></tw-passagedata><tw-passagedata pid="33" name="Oxygen Levels Fiddling" tags="" position="1200,300" size="100,100"></tw-passagedata><tw-passagedata pid="34" name="Research" tags="" position="1400,600" size="100,100">&lt;&lt;if $timeloop is 0&gt;&gt;
 The research room is sprinkled with the gentle hum coming from the computer bays and fume hoods.
 
 To the left of me hangs a poster saying, “Somewhere, something incredible is waiting to be known.”
@@ -867,7 +870,8 @@ I told HQ Macbooks should be in the budget.
 &lt;div class=&quot;choice&quot;&gt;[[Unplug the computer (2 actions)|Unplug the computer][$turns to $turns - 2]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Spam the keyboard (1 action)|Spam the keyboard][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Engine Room (1 action)|Engine][$turns to $turns - 1]]&lt;/div&gt;
-&lt;div class=&quot;choice&quot;&gt;[[Go to Navigation (1 action)|Navigation][$turns to $turns - 1]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="Fix the station&#39;s output" tags="" position="1500,300" size="100,100"></tw-passagedata><tw-passagedata pid="36" name="Reset the internet" tags="" position="1400,700" size="100,100"></tw-passagedata><tw-passagedata pid="37" name="Unplug the computer" tags="" position="1500,700" size="100,100"></tw-passagedata><tw-passagedata pid="38" name="Spam the keyboard" tags="" position="1300,700" size="100,100"></tw-passagedata><tw-passagedata pid="39" name="Inventory" tags="" position="700,1100" size="100,100"></tw-passagedata><tw-passagedata pid="40" name="Parcel" tags="" position="900,1100" size="100,100"></tw-passagedata><tw-passagedata pid="41" name="Try and diagnose the problem. (2 actions)" tags="" position="1300,1100" size="100,100">After looking at way to many gauges, I figure out the problem.
+&lt;div class=&quot;choice&quot;&gt;[[Go to Navigation (1 action)|Navigation][$turns to $turns - 1]]&lt;/div&gt;
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="Fix the station&#39;s output" tags="" position="1500,300" size="100,100"></tw-passagedata><tw-passagedata pid="36" name="Reset the internet" tags="" position="1400,700" size="100,100"></tw-passagedata><tw-passagedata pid="37" name="Unplug the computer" tags="" position="1500,700" size="100,100"></tw-passagedata><tw-passagedata pid="38" name="Spam the keyboard" tags="" position="1300,700" size="100,100"></tw-passagedata><tw-passagedata pid="39" name="Inventory" tags="" position="700,1100" size="100,100"></tw-passagedata><tw-passagedata pid="40" name="Parcel" tags="" position="900,1100" size="100,100"></tw-passagedata><tw-passagedata pid="41" name="Try and diagnose the problem. (2 actions)" tags="" position="1300,1100" size="100,100">After looking at way to many gauges, I figure out the problem.
 
 &quot;Okay I just need to replace a part and then I should be good! I think I have this part in Storage.&quot;
 
@@ -883,7 +887,7 @@ I told HQ Macbooks should be in the budget.
 [[Well might as well go ahead and organize everything. (3 actions)]]
 (if: hasDiagnosedEngine is true)[I should be able to find the part for the engine in here. (2 actions)]
 [[“Nothing left in here. Might as well go back to Research.” |Research]]
-</tw-passagedata><tw-passagedata pid="45" name="Well might as well go ahead and organize everything. (3 actions)" tags="" position="1800,700" size="100,100">[[&quot;There much better.&quot;|Storage]]
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="Well might as well go ahead and organize everything. (3 actions)" tags="" position="1800,700" size="100,100">[[&quot;There much better.&quot;|Storage]]
 &lt;&lt;set $playerActionTaken to $playerActionTaken + 3&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
