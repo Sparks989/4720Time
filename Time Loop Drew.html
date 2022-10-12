@@ -639,7 +639,8 @@ I assess for any damages and just like yeste- today I feel fine.
 &lt;&lt;set $playerActionTaken to 0&gt;&gt;
 &lt;&lt;set $actionsRemaining to 30&gt;&gt;
 &lt;&lt;set $hasPart to false&gt;&gt;
-&lt;&lt;set $hasDiagnosedEngine to false&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="1" tags="" position="1050,25" size="100,100">Test block
+&lt;&lt;set $hasDiagnosedEngine to false&gt;&gt;
+&lt;&lt;set $currentRoom to &quot;Barracks&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="1" tags="" position="1050,25" size="100,100">Test block
 Turns: $turns
 &lt;div class=&quot;choice&quot;&gt;[[next|3]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="2" tags="" position="1150,25" size="100,100">&lt;&lt;if settings.achievements&gt;&gt;&lt;&lt;notify 3s&gt;&gt;Achievements active!&lt;&lt;/notify&gt;&gt;&lt;&lt;/if&gt;&gt;Elementum nisi quis eleifend quam adipiscing vitae. Ullamcorper dignissim cras tincidunt lobortis. Dictum varius duis at consectetur lorem donec massa sapien. Eu scelerisque felis imperdiet proin fermentum leo. Massa id neque aliquam vestibulum morbi blandit. Nec dui nunc mattis enim ut tellus. Rhoncus dolor purus non enim praesent elementum. Ante in nibh mauris cursus mattis. Nullam non nisi est sit amet facilisis. Orci sagittis eu volutpat odio facilisis mauris. At risus viverra adipiscing at in tellus integer. Ultrices neque ornare aenean euismod elementum nisi quis eleifend quam.
 &lt;div class=&quot;choice&quot;&gt;[[next - pronoun setting|3]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="achievements" tags="" position="200,100" size="100,100">Insert achievements here</tw-passagedata><tw-passagedata pid="5" name="StoryMenu" tags="nobr" position="300,300" size="100,100">&lt;!-- ANY LINKS FOR THE MENU GO HERE --&gt;
@@ -732,7 +733,7 @@ However, I know the black hole could be coming soon, &quot;Do I have time to do 
 &lt;div class=&quot;choice&quot;&gt;[[Take a nap|Blackhole reset][$timeloop to $timeloop + 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Change your suit (1 action)|Change of Suit][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Med Bay (1 action)|Med Bay][$turns to $turns - 1]]&lt;/div&gt;
-&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="Med Bay" tags="" position="800,600" size="100,100">&lt;&lt;if $timeloop is 0&gt;&gt;
+&lt;&lt;set $currentRoom to &quot;Barracks&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="Med Bay" tags="" position="800,600" size="100,100">&lt;&lt;if $timeloop is 0&gt;&gt;
 Med bay looks as it normally does: white and sterile. The medical cabinets are stored with first aid equipments, medicine, and basically anything anyone would need up alone in space. There is also a lot of supplies so that I can treat any physical ailments. Thankfully, I don&#39;t have to use this room that often other than giving myself a quick check up or test some of my own samples to make sure I am getting all my proper vitamins and nutrients.
 
 This room leads to the docking bay, command room, and the barracks. 
@@ -758,7 +759,11 @@ I enter med bay… again. &quot;Is there anything I should do here?&quot; I ask 
 &lt;div class=&quot;choice&quot;&gt;[[Go to Barracks (1 action)|The Barracks][$turns to $turns - 1]]&lt;/div&gt;
 &lt;&lt;if $playerinjured is true&gt;&gt; &lt;div class=&quot;choice&quot;&gt;[[Patch injuries (2 actions)|Fixing injuries][$turns to $turns - 2]]&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Blackhole reset" tags="" position="500,400" size="100,100">Time has run out. The spaceship descends into the black hole and all of my vision goes black.
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;
+&lt;&lt;if $turns &lt;= 20&gt;&gt;
+&lt;&lt;goto &quot;Asteroid&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;set $currentRoom to &quot;Med Bay&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Blackhole reset" tags="" position="500,400" size="100,100">Time has run out. The spaceship descends into the black hole and all of my vision goes black.
 
 The end…or is it?
 
@@ -782,14 +787,21 @@ How may I help you today?
 &lt;div class=&quot;choice&quot;&gt;[[Go to Med Bay (1 action)|Med Bay][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Engine Room (1 action)|Engine][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Navigation (1 action)|Navigation][$turns to $turns - 1]]&lt;/div&gt;
-&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="Command Room" tags="" position="800,200" size="100,100">Command. It’s surprisingly small for debatably the most important room on a ship. Inside the narrow space are two seats facing towards the control desk that pilots the ship. One normally doesn’t have access to the control desk unless they have special authorization from home base or an override code. There are windows on the side walls and behind the control desk that let me see the beauty of the space around me.
+&lt;&lt;if $turns &lt;= 20&gt;&gt;
+&lt;&lt;goto &quot;Asteroid&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;set $currentRoom to &quot;Docking Bay&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="Command Room" tags="" position="800,200" size="100,100">Command. It’s surprisingly small for debatably the most important room on a ship. Inside the narrow space are two seats facing towards the control desk that pilots the ship. One normally doesn’t have access to the control desk unless they have special authorization from home base or an override code. There are windows on the side walls and behind the control desk that let me see the beauty of the space around me.
 
 &lt;div class=&quot;choice&quot;&gt;[[Look at the chairs (1 action)|Look at chairs][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Inspect the Control Desk (1 action)|Inspect Control Desk][$turns to $turns - 1]]
 &lt;div class=&quot;choice&quot;&gt;[[Go to Navigation (1 action)|Navigation][$turns to turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Engine Room (1 action)|Engine][$turns to turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Med Bay (1 action)|Med Bay][$turns to turns - 1]]&lt;/div&gt;
-&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Fixing injuries" tags="" position="700,700" size="100,100">&quot;Ahhh sweet med bay.&quot;
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;
+&lt;&lt;if $turns &lt;= 20&gt;&gt;
+&lt;&lt;goto &quot;Asteroid&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;set $currentRoom to &quot;Command Room&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Fixing injuries" tags="" position="700,700" size="100,100">&quot;Ahhh sweet med bay.&quot;
 
 I go straight to the cabinet to find the first aid kit. It&#39;s a lot harder to tend to my wounds when I am in space all on my own. However, that&#39;s what all that medical training was for.
 
@@ -825,7 +837,11 @@ The door to the navigation room slid open. Everything&#39;s still in the same pl
 &lt;div class=&quot;choice&quot;&gt;[[Investigate monitors (2 actions)|Monitors][$turns to $turns - 2]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Command (1 action)|Command Room][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Docking Bay (1 action)|Docking Bay][$turns to $turns - 1]]&lt;/div&gt;
-&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="Engine" tags="" position="1400,1000" size="100,100">I walk into the engine room and there is a soothing hum.
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;
+&lt;&lt;if $turns &lt;= 20&gt;&gt;
+&lt;&lt;goto &quot;Asteroid&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;set $currentRoom to &quot;Navigation&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="Engine" tags="" position="1400,1000" size="100,100">I walk into the engine room and there is a soothing hum.
 
 “Everything seems fine in here, but may as well check.”
 
@@ -839,10 +855,13 @@ I look over a couple of the gauges and for whatever reason there seems to be a p
 &lt;div class=&quot;choice&quot;&gt;[[Fiddle with the station’s output. (1 action)]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Change the local oxygen levels. (1 action)]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;&lt;&lt;if $hasPart is true&gt;&gt;[[Okay time to fix the station’s output. (2 actions)]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;
-&lt;div class=&quot;choice&quot;&gt;[[“This way to research.” |Research]]&lt;/div&gt;
-&lt;div class=&quot;choice&quot;&gt;[[“I should probably check out the command room.” |Command Room]]&lt;/div&gt;
-&lt;div class=&quot;choice&quot;&gt;[[“The docking bay could probably use some attention.” |Docking Bay]]&lt;/div&gt;
-&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="Research" tags="" position="1400,600" size="100,100">&lt;&lt;if $timeloop is 0&gt;&gt;
+&lt;div class=&quot;choice&quot;&gt;[[Go to Research |Research][$turns to $turns - 1]]&lt;/div&gt;
+&lt;div class=&quot;choice&quot;&gt;[[Go to Command |Command Room][$turns to $turns - 1]]&lt;/div&gt;
+&lt;div class=&quot;choice&quot;&gt;[[Go To Docking Bay |Docking Bay][$turns to $turns - 1]]&lt;/div&gt;
+&lt;&lt;if $turns &lt;= 20&gt;&gt;
+&lt;&lt;goto &quot;Asteroid&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;set $currentRoom to &quot;Engine&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="Research" tags="" position="1400,600" size="100,100">&lt;&lt;if $timeloop is 0&gt;&gt;
 The research room is sprinkled with the gentle hum coming from the computer bays and fume hoods.
 
 To the left of me hangs a poster saying, “Somewhere, something incredible is waiting to be known.”
@@ -854,7 +873,7 @@ In the corner of my eye I see one of the laptop displays has a blue screen. “Y
 I told HQ Macbooks should be in the budget.
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $timeloop is gte 1 and $timeloop lt 3&gt;&gt;
+&lt;&lt;if $timeloop &gt;= 1 and $timeloop lt 3&gt;&gt;
 The research room is filled with the active hum coming from the computer bays and fume hoods. Must be running on overdrive.
 
 To the left of me hangs a poster saying, “The universe is in your bones, the stars in your soul; it&#39;s never really the end.” 
@@ -867,7 +886,7 @@ Why aren&#39;t Macbooks in the budget
 
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;if $timeloop is gte 3&gt;&gt;
+&lt;&lt;if $timeloop &gt;= 3&gt;&gt;
 The research room is bumping with a hum coming from the computer bays and fume hoods. Should they be doing that?
 
 
@@ -886,32 +905,40 @@ I&#39;m tired of thinking this but I told HQ Macbooks should be in the budget!
 &lt;div class=&quot;choice&quot;&gt;[[Spam the keyboard (1 action)|Spam the keyboard][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Engine Room (1 action)|Engine][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Navigation (1 action)|Navigation][$turns to $turns - 1]]&lt;/div&gt;
-&lt;div class=&quot;choice&quot;&gt;[[Go to Storage (1 action)|Storage][$turns to $turns - 1]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="32" name="Reset the internet" tags="" position="1400,700" size="100,100"></tw-passagedata><tw-passagedata pid="33" name="Unplug the computer" tags="" position="1500,700" size="100,100"></tw-passagedata><tw-passagedata pid="34" name="Spam the keyboard" tags="" position="1300,700" size="100,100"></tw-passagedata><tw-passagedata pid="35" name="Inventory" tags="" position="700,1100" size="100,100"></tw-passagedata><tw-passagedata pid="36" name="Parcel" tags="" position="900,1100" size="100,100"></tw-passagedata><tw-passagedata pid="37" name="Try and diagnose the problem. (2 actions)" tags="" position="1300,1100" size="100,100">After looking at way to many gauges, I figure out the problem.
+&lt;div class=&quot;choice&quot;&gt;[[Go to Storage (1 action)|Storage][$turns to $turns - 1]]&lt;/div&gt;
+&lt;&lt;if $turns &lt;= 20&gt;&gt;
+&lt;&lt;goto &quot;Asteroid&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;set $currentRoom to &quot;Research&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="Reset the internet" tags="" position="1400,700" size="100,100"></tw-passagedata><tw-passagedata pid="33" name="Unplug the computer" tags="" position="1500,700" size="100,100"></tw-passagedata><tw-passagedata pid="34" name="Spam the keyboard" tags="" position="1300,700" size="100,100"></tw-passagedata><tw-passagedata pid="35" name="Inventory" tags="" position="700,1100" size="100,100"></tw-passagedata><tw-passagedata pid="36" name="Parcel" tags="" position="900,1100" size="100,100"></tw-passagedata><tw-passagedata pid="37" name="Try and diagnose the problem. (2 actions)" tags="" position="1300,1100" size="100,100">After looking at way to many gauges, I figure out the problem.
 
 &quot;Okay I just need to replace a part and then I should be good! I think I have this part in Storage.&quot;
 
 [[&quot;Now will I be able to find it?&quot; |Engine]]
 &lt;&lt;set $playerActionTaken to $playerActionTaken + 2&gt;&gt;
-&lt;&lt;set $hasDiagnosedEngine to true&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Fiddle with the station’s output. (1 action)" tags="" position="1400,1100" size="100,100">[[&quot;Well that should help fuel efficiency|Engine]]
+&lt;&lt;set $hasDiagnosedEngine to true&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Fiddle with the station’s output. (1 action)" tags="" position="1400,1100" size="100,100">[[&quot;Well that should help fuel efficiency&quot;|Engine]]
 &lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="Change the local oxygen levels. (1 action)" tags="" position="1500,1100" size="100,100">[[&quot;I&#39;ll need to refill on oxygen eventually, but I should be good for now.&quot;|Engine]]</tw-passagedata><tw-passagedata pid="40" name="Storage" tags="" position="1800,600" size="100,100">The room is a mess as I walk in. I don’t come in here often and never feel like organizing anything.
 
 &lt;&lt;if $timeloop &gt;= 1&gt;&gt;“I really wish I had organized this place better now.”&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $timeloop &gt;= 1&gt;&gt;“Okay I need to be sure I’m not here when this place gets taken out.”&lt;&lt;/if&gt;&gt;
 
-[[Well might as well go ahead and organize everything. (3 actions)]]
-&lt;&lt;if $hasDiagnosedEngine is true&gt;&gt;[[I should be able to find the part for the engine in here. (2 actions)]]&lt;&lt;/if&gt;&gt;
-[[“Nothing left in here. Might as well go back to Research.” |Research]]
-&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="41" name="Well might as well go ahead and organize everything. (3 actions)" tags="" position="1800,700" size="100,100">[[&quot;There much better.&quot;|Storage]]
+&lt;div class=&quot;choice&quot;&gt;[[Well might as well go ahead and organize everything. (3 actions)]]&lt;/div&gt;
+&lt;div class=&quot;choice&quot;&gt;&lt;&lt;if $hasDiagnosedEngine is true&gt;&gt;[[I should be able to find the part for the engine in here. (2 actions)]]&lt;&lt;/if&gt;&gt;&lt;/div&gt;
+&lt;div class=&quot;choice&quot;&gt;[[Go to Research |Research][$turns to $turns - 1]]&lt;/div&gt;
+&lt;&lt;if $turns &lt;= 20&gt;&gt;
+&lt;&lt;goto &quot;Asteroid Storage&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="41" name="Well might as well go ahead and organize everything. (3 actions)" tags="" position="1800,700" size="100,100">[[&quot;There much better.&quot;|Storage]]
 &lt;&lt;set $playerActionTaken to $playerActionTaken + 3&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="Asteroid" tags="" position="1775,150" size="100,100">There’s a loud bang and the entire station canvases. I fall to the ground and I feel a bone crack in my arm. 
 
 “WARNING…WARNING the station’s hull has been compromised. Sealing off relevant passageways. Please advise.”
 
 I slowly pick myself up and check to make sure I’m still in one piece.
 
-(if: timeLoop is 0)[“This place is falling apart! I need to figure out how to salvage this.”]
-(if: timeLoop is &gt;= 1)[“Yep that happened again… guess there’s no escaping that one.”]
-</tw-passagedata><tw-passagedata pid="43" name="Asteroid in Storage" tags="" position="1775,275" size="100,100">I fall to the ground as the entire station canvases. Suddenly, there is a tearing sound as everything around me is ripped away from the station. 
+&lt;&lt;if $timeloop is 0&gt;&gt;“This place is falling apart! I need to figure out how to salvage this.”&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $timeLoop is &gt;= 1&gt;&gt;“Yep that happened again… guess there’s no escaping that one.”&lt;&lt;/if&gt;&gt;
+&lt;&lt;timed 10s t8n&gt;&gt;
+&lt;&lt;goto $currentRoom&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="Asteroid in Storage" tags="" position="1775,275" size="100,100">I fall to the ground as the entire station canvases. Suddenly, there is a tearing sound as everything around me is ripped away from the station. 
 
 My thoughts are a mess as I look out into empty space. The last thing I see is my station floating away.
 
