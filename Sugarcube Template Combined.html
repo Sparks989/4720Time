@@ -763,7 +763,11 @@ The end…or is it?
 
 
 &lt;div class=&quot;choice&quot;&gt;[[Next|Start][$turns to $turns * 0]]&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="21" name="Change of Suit" tags="" position="500,750" size="100,100"></tw-passagedata><tw-passagedata pid="22" name="Run vitals" tags="" position="800,700" size="100,100">It seems like everything is fine…
+</tw-passagedata><tw-passagedata pid="21" name="Change of Suit" tags="" position="500,750" size="100,100">I change out my suit for a fresh one. 
+
+&quot;That&#39;s much better.&quot;
+
+&lt;/div class=&quot;choice&quot;&gt;[[Go back|The Barracks]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="Run vitals" tags="" position="800,700" size="100,100">It seems like everything is fine…
 
 &lt;div class=&quot;choice&quot;&gt;[[Go Back|Med Bay]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="Docking Bay" tags="" position="800,1000" size="100,100">The clatter of mechanical rattling filled the docking bay. I’ve always wondered how delivery services work.
 
@@ -806,24 +810,18 @@ This was an old ship that was restructured for the new generation. When I was as
 “I’d better not touch anything unless I’m completely sure about it.”
 
 &lt;/div class=&quot;choice&quot;&gt;[[Go back|Command Room]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="Navigation" tags="" position="1350,200" size="100,100">&lt;&lt;if $timeloop is 0&gt;&gt;
-I walk into the engine room and there is a soothing hum.
+The door to the navigation room slid open. As I step inside and look around, I spot the center console displaying a holographic mapping of the ship’s surroundings. Along the walls are a number of computer desks with monitors, all actively simulating possible dangers along the ship’s journey and sending alerts to the command room’s computer for optimal adjustments to the course. 
 
-“Everything seems fine in here, but may as well check.”
-
-I look over a couple of the gauges and for whatever reason there seems to be a power leak. 
-
-“The current output is able to sustain my current course, but if I were to try and do any evasive maneuvers, I would be in a tough spot.” 
-
+“Well, what should I be looking at here?”
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $timeloop gt 0&gt;&gt;
-Okay I need to fix the engine otherwise the same thing will happen.
+The door to the navigation room slid open. Everything&#39;s still in the same place as last time. The center console is still displaying the holographic map and the walls are still lined with computers and their monitors.
 
-&lt;&lt;if $hasPart is true&gt;&gt; &lt;div class=&quot;choice&quot;&gt;[[Fix the station&#39;s output (1 action)|Fix the station&#39;s output][$turns to $turns - 2]]&lt;/div&gt;&lt;&lt;/if&gt;&gt;
-&lt;div class=&quot;choice&quot;&gt;[[Try and diagnose the problem (2 actions)|Diagnosis][$turns to $turns - 2]]&lt;/div&gt;
-&lt;div class=&quot;choice&quot;&gt;[[Fiddle with the station&#39;s output (1 action)|Station Output Fiddling][$turns to $turns - 1]]&lt;/div&gt;
-&lt;div class=&quot;choice&quot;&gt;[[Change the local oxygen levels (1 action|Oxygen Levels Fiddling][$turns to $turns - 1]]&lt;/div&gt;
-&lt;div class=&quot;choice&quot;&gt;[[Go to Research (1 action)|Research][$turns to $turns - 1]]&lt;/div&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;div class=&quot;choice&quot;&gt;[[Inspect Center Console (1 action)|Center Console][$turns to turns - 1]]&lt;/div&gt;
+&lt;div class=&quot;choice&quot;&gt;[[Investigate monitors (2 actions)|Monitors][$turns to $turns - 2]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Command (1 action)|Command Room][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Docking Bay (1 action)|Docking Bay][$turns to $turns - 1]]&lt;/div&gt;
 &lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="Engine" tags="" position="1400,1000" size="100,100">I walk into the engine room and there is a soothing hum.
@@ -843,7 +841,7 @@ I look over a couple of the gauges and for whatever reason there seems to be a p
 [[“This way to research.” |Research]]
 [[“I should probably check out the command room.” |Command Room]]
 [[“The docking bay could probably use some attention.” |Docking Bay]]
-&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="Diagnosis" tags="" position="1300,300" size="100,100"></tw-passagedata><tw-passagedata pid="32" name="Station Output Fiddling" tags="" position="1400,300" size="100,100"></tw-passagedata><tw-passagedata pid="33" name="Oxygen Levels Fiddling" tags="" position="1200,300" size="100,100"></tw-passagedata><tw-passagedata pid="34" name="Research" tags="" position="1400,600" size="100,100">&lt;&lt;if $timeloop is 0&gt;&gt;
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="Research" tags="" position="1400,600" size="100,100">&lt;&lt;if $timeloop is 0&gt;&gt;
 The research room is sprinkled with the gentle hum coming from the computer bays and fume hoods.
 
 To the left of me hangs a poster saying, “Somewhere, something incredible is waiting to be known.”
@@ -864,7 +862,7 @@ Sounds like a pinterest quote.
 
 In the corner of my eye I see one of the many displays has a blue screen. “Your PC ran into a problem and needs to restart.”
 
-I told HQ Macbooks should be in the budget.
+Why aren&#39;t Macbooks in the budget
 
 &lt;&lt;/if&gt;&gt;
 
@@ -878,7 +876,7 @@ Oddly inspirational.
 
 In the corner of my eye I see one of the many displays has a blue screen. “Your PC ran into a problem and needs to restart.”
 
-I told HQ Macbooks should be in the budget.
+I&#39;m tired of thinking this but I told HQ Macbooks should be in the budget!
 
 &lt;&lt;/if&gt;&gt;
 
@@ -887,14 +885,14 @@ I told HQ Macbooks should be in the budget.
 &lt;div class=&quot;choice&quot;&gt;[[Spam the keyboard (1 action)|Spam the keyboard][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Engine Room (1 action)|Engine][$turns to $turns - 1]]&lt;/div&gt;
 &lt;div class=&quot;choice&quot;&gt;[[Go to Navigation (1 action)|Navigation][$turns to $turns - 1]]&lt;/div&gt;
-&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="Fix the station&#39;s output" tags="" position="1500,300" size="100,100"></tw-passagedata><tw-passagedata pid="36" name="Reset the internet" tags="" position="1400,700" size="100,100"></tw-passagedata><tw-passagedata pid="37" name="Unplug the computer" tags="" position="1500,700" size="100,100"></tw-passagedata><tw-passagedata pid="38" name="Spam the keyboard" tags="" position="1300,700" size="100,100"></tw-passagedata><tw-passagedata pid="39" name="Inventory" tags="" position="700,1100" size="100,100"></tw-passagedata><tw-passagedata pid="40" name="Parcel" tags="" position="900,1100" size="100,100"></tw-passagedata><tw-passagedata pid="41" name="Try and diagnose the problem. (2 actions)" tags="" position="1300,1100" size="100,100">After looking at way to many gauges, I figure out the problem.
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="Reset the internet" tags="" position="1400,700" size="100,100"></tw-passagedata><tw-passagedata pid="33" name="Unplug the computer" tags="" position="1500,700" size="100,100"></tw-passagedata><tw-passagedata pid="34" name="Spam the keyboard" tags="" position="1300,700" size="100,100"></tw-passagedata><tw-passagedata pid="35" name="Inventory" tags="" position="700,1100" size="100,100"></tw-passagedata><tw-passagedata pid="36" name="Parcel" tags="" position="900,1100" size="100,100"></tw-passagedata><tw-passagedata pid="37" name="Try and diagnose the problem. (2 actions)" tags="" position="1300,1100" size="100,100">After looking at way to many gauges, I figure out the problem.
 
 &quot;Okay I just need to replace a part and then I should be good! I think I have this part in Storage.&quot;
 
 [[&quot;Now will I be able to find it?&quot; |Engine]]
 &lt;&lt;set $playerActionTaken to $playerActionTaken + 2&gt;&gt;
-</tw-passagedata><tw-passagedata pid="42" name="Fiddle with the station’s output. (1 action)" tags="" position="1400,1100" size="100,100">[[&quot;Well that should help fuel efficiency|Engine]]
-&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="Change the local oxygen levels. (1 action)" tags="" position="1500,1100" size="100,100">[[&quot;I&#39;ll need to refill on oxygen eventually, but I should be good for now.&quot;|Engine]]</tw-passagedata><tw-passagedata pid="44" name="Storage" tags="" position="1800,600" size="100,100">The room is a mess as I walk in. I don’t come in here often and never feel like organizing anything.
+</tw-passagedata><tw-passagedata pid="38" name="Fiddle with the station’s output. (1 action)" tags="" position="1400,1100" size="100,100">[[&quot;Well that should help fuel efficiency|Engine]]
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="Change the local oxygen levels. (1 action)" tags="" position="1500,1100" size="100,100">[[&quot;I&#39;ll need to refill on oxygen eventually, but I should be good for now.&quot;|Engine]]</tw-passagedata><tw-passagedata pid="40" name="Storage" tags="" position="1800,600" size="100,100">The room is a mess as I walk in. I don’t come in here often and never feel like organizing anything.
 
 (if: timeLoop &gt;= 1)[“I really wish I had organized this place better now.”]
 
@@ -903,8 +901,8 @@ I told HQ Macbooks should be in the budget.
 [[Well might as well go ahead and organize everything. (3 actions)]]
 (if: hasDiagnosedEngine is true)[I should be able to find the part for the engine in here. (2 actions)]
 [[“Nothing left in here. Might as well go back to Research.” |Research]]
-&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="Well might as well go ahead and organize everything. (3 actions)" tags="" position="1800,700" size="100,100">[[&quot;There much better.&quot;|Storage]]
-&lt;&lt;set $playerActionTaken to $playerActionTaken + 3&gt;&gt;</tw-passagedata><tw-passagedata pid="46" name="Asteroid" tags="" position="1775,150" size="100,100">There’s a loud bang and the entire station canvases. I fall to the ground and I feel a bone crack in my arm. 
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 1&gt;&gt;</tw-passagedata><tw-passagedata pid="41" name="Well might as well go ahead and organize everything. (3 actions)" tags="" position="1800,700" size="100,100">[[&quot;There much better.&quot;|Storage]]
+&lt;&lt;set $playerActionTaken to $playerActionTaken + 3&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="Asteroid" tags="" position="1775,150" size="100,100">There’s a loud bang and the entire station canvases. I fall to the ground and I feel a bone crack in my arm. 
 
 “WARNING…WARNING the station’s hull has been compromised. Sealing off relevant passageways. Please advise.”
 
@@ -912,11 +910,18 @@ I slowly pick myself up and check to make sure I’m still in one piece.
 
 (if: timeLoop is 0)[“This place is falling apart! I need to figure out how to salvage this.”]
 (if: timeLoop is &gt;= 1)[“Yep that happened again… guess there’s no escaping that one.”]
-</tw-passagedata><tw-passagedata pid="47" name="Asteroid in Storage" tags="" position="1775,275" size="100,100">I fall to the ground as the entire station canvases. Suddenly, there is a tearing sound as everything around me is ripped away from the station. 
+</tw-passagedata><tw-passagedata pid="43" name="Asteroid in Storage" tags="" position="1775,275" size="100,100">I fall to the ground as the entire station canvases. Suddenly, there is a tearing sound as everything around me is ripped away from the station. 
 
 My thoughts are a mess as I look out into empty space. The last thing I see is my station floating away.
 
 [[The end… |Start]]
+</tw-passagedata><tw-passagedata pid="44" name="Center Console" tags="" position="1300,300" size="100,100">The holographic map was beautiful. It allows users to zoom in and look at all of the nearby stars, planets, and asteroids. Everything was shown with a stunning degree of detail. It’s so mesmerizing…
+
+
+&lt;&lt;div class=&quot;choice&quot;&gt;[[Go back|Navigation]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="45" name="Monitors" tags="" position="1400,300" size="100,100">I step closer to the monitors nearest to me. It seems like it’s taking information from the map and calculating for unseen anomalies. Countless numbers are being printed at the bottom of the screen and floating their way up to the top as more come out. I’m not too well versed in how everything is being considered in its calculations, but watching it work is a sight to behold...
+
+&lt;div class=&quot;choice&quot;&gt;[[Go back|Navigation]]&lt;/div&gt;
+
 </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
